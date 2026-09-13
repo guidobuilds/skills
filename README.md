@@ -6,7 +6,7 @@ A small collection of agent skills.
 
 | Skill | What it does |
 |-------|--------------|
-| [`code-audit`](./code-audit/SKILL.md) | Audits web, mobile and API codebases for dark patterns, code smells, architecture issues and anti-patterns. |
+| [`code-audit`](./code-audit/SKILL.md) | Audits any codebase for dark patterns, code smells, security and architecture issues. Adapts to the repo's detected modules/units and stacks instead of assuming web/mobile/API. |
 
 ## Installation
 
