@@ -1,6 +1,6 @@
 ---
 name: working-workflow
-description: Use this skill at the START of any kind of work (feature, bug, refactor, investigation, chore, or any task the user asks you to carry out). It defines how the agent must work: Linear is the single source of truth, the task must exist in Linear before anything else, every step is recorded there, and the issue status must always reflect where the work stands. Triggers include any request to start, take, plan, implement, fix, or continue a task.
+description: Use this skill at the START of any kind of work (feature, bug, refactor, investigation, chore, or any task the user asks you to carry out). It defines how the agent must work. Linear is the single source of truth, the task must exist in Linear before anything else, every step is recorded there, and the issue status must always reflect where the work stands. Triggers include any request to start, take, plan, implement, fix, or continue a task.
 ---
 
 # Working Workflow
