@@ -46,10 +46,20 @@ Backlog → Todo → In specification → Ready for development → In Progress 
 Rejected / Duplicate: allowed from any status.
 ```
 
+## Issue metadata: type, priority, project
+
+Every issue must have its metadata fully set. When creating an issue with `save_issue`, ALWAYS set:
+
+1. **Type** — Classify the work: `Feature`, `Bug`, `Improvement` (UI / design), `Technical` (refactor, infra, technical debt). If the user's request doesn't clearly map to one, ask which category fits best.
+2. **Priority / Severity** — Set the urgency: `Urgent` (crash, data loss, production blocker), `High` (significant impact, workaround hard), `Medium` (noticeable impact, workaround available), `Low` (cosmetic, nice-to-have). If the user doesn't specify, propose an appropriate level and confirm.
+3. **Project** — Assign to the relevant project so the work is tracked in the right backlog/board. If it's unclear which project, ask the user.
+
+Never leave these fields blank. If the user doesn't provide them, ask explicitly before creating the issue.
+
 ## Phase 1 — Take or register the task
 
 - If the user gives an issue ID/URL: read it (`get_issue`, plus `list_comments`) and respect its current status.
-- If there is no issue: search first (`list_issues`) to avoid duplicates, then create it with `save_issue` (team, title, description with context, status `Backlog` or `Todo` as the user indicates).
+- If there is no issue: search first (`list_issues`) to avoid duplicates, then create it with `save_issue` including **all required metadata**: team, type, priority/severity, project, title, description with context, and status `Backlog` or `Todo` as the user indicates.
 - Never start work on an issue in `Backlog`. Ask the user to prioritize it, or move it to `Todo` with their consent.
 - Parent/child: if the task is a sub-task, link it to its parent.
 
@@ -95,6 +105,7 @@ Present the final spec and the list of sub-issues to the user. **Ask for explici
 | Transition | Who |
 |---|---|
 | Create issue, `Backlog`/`Todo` ↔ | Agent creates; user prioritizes what goes to `Todo`. |
+| **Issue metadata (type, priority/severity, project)** | **User decides.** Agent proposes and confirms before setting. |
 | `Todo` → `In specification` | Agent, when taking the task. |
 | `In specification` → `Ready for development` | **User approves explicitly.** |
 | `Ready for development` → `In Progress` → `Develop` → `Under Review` | Agent, automatically as work happens. |
@@ -116,3 +127,4 @@ Present the final spec and the list of sub-issues to the user. **Ask for explici
 - Do not work on a deliverable that has no sub-issue.
 - Do not skip statuses to look faster, and do not leave a status stale.
 - Do not move to `Ready for development` without the user's explicit approval.
+- Do not create an issue without setting **type, priority/severity, and project**.
